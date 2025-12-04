@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cinematic AI Studio</title>
+    <!-- Vazirmatn Font for Persian -->
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              gray: {
+                900: '#0f1115', // Deeper black
+                850: '#161920',
+                800: '#1f242f',
+                700: '#374151',
+                50: '#f9fafb',
+                100: '#f3f4f6',
+                200: '#e5e7eb',
+              },
+              studio: {
+                accent: '#3b82f6', // Electric Blue
+                glow: '#60a5fa',
+              }
+            },
+            fontFamily: {
+              sans: ['Vazirmatn', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            },
+            animation: {
+              fadeIn: 'fadeIn 0.5s ease-out forwards',
+              slideUp: 'slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+              zoomIn: 'zoomIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+              float: 'float 10s ease-in-out infinite',
+              floatSlow: 'float 15s ease-in-out infinite reverse',
+              pulseSlow: 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'shimmer': 'shimmer 2s linear infinite',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              slideUp: {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              zoomIn: {
+                '0%': { opacity: '0', transform: 'scale(0.95)' },
+                '100%': { opacity: '1', transform: 'scale(1)' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-20px)' },
+              },
+              shimmer: {
+                '0%': { backgroundPosition: '-200% 0' },
+                '100%': { backgroundPosition: '200% 0' },
+              }
+            },
+            backgroundImage: {
+              'noise': "url('https://grainy-gradients.vercel.app/noise.svg')",
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* Custom scrollbar for high-end look */
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: rgba(156, 163, 175, 0.3); 
+        border-radius: 10px;
+        transition: background 0.3s;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgba(156, 163, 175, 0.6); 
+      }
+      .dark ::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.1);
+      }
+      .dark ::-webkit-scrollbar-thumb:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+      
+      /* Range Slider Customization */
+      input[type=range] {
+        -webkit-appearance: none; 
+        background: transparent; 
+      }
+      input[type=range]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        height: 16px;
+        width: 16px;
+        border-radius: 50%;
+        background: #3b82f6;
+        cursor: pointer;
+        margin-top: -6px; 
+        box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+        border: 2px solid white;
+        transition: transform 0.1s;
+      }
+      input[type=range]::-webkit-slider-thumb:hover {
+        transform: scale(1.2);
+      }
+      input[type=range]::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 4px;
+        cursor: pointer;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 2px;
+      }
+      
+      /* Hide scrollbar utility */
+      .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+      }
+      .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+      }
+
+      /* Mask fade for horizontal lists */
+      .mask-fade-sides {
+        -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-white antialiased transition-colors duration-500 overflow-x-hidden">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
